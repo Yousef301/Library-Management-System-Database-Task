@@ -57,4 +57,7 @@ Design and implement a relational database using MS SQL that supports the librar
 - Design a stored procedure that retrieves all borrowers who have overdue books. Store these borrowers in a temporary table, then join this temp table with the **`Loans`** table to list out the specific overdue books for each borrower.
 
 ## **LMS ERM**:
+![](images/LMS_ERM.png)
 
+## **Database seeding**:
+I used the data_generator.py script to generate fake consistent data for the database in the form of CSV files. Then, I utilized these generated CSV files — 'books.csv', 'borrowers.csv', and 'loans.csv' — to seed the database. You can watch the YouTube video available at the following link: https://www.youtube.com/watch?v=14FpoXKTEJw to help you in the seeding process.
