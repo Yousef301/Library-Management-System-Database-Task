@@ -5,11 +5,8 @@
 -- the lowest percentage. (e.g. 25.18% of the loans happen on Monday...)
 
 
-with LoansWithDayBorrowed as (
-	select *,
-	DATENAME(dw, DateBorrowed) AS DayName from Loans
-) select DayName,
-  count(DayName) TotalBorrowed,
-  format((count(DayName) * 100.0)/ (select count(*) from Loans), 'N2') as Percentage from LoansWithDayBorrowed
-group by DayName
-order by Percentage desc
+SELECT DATENAME(dw, DateBorrowed) DayName,
+  COUNT(*) TotalBorrowed,
+  FORMAT((COUNT(*) * 100.0)/ (SELECT COUNT(*) FROM Loans), 'N2') AS Percentage FROM Loans
+GROUP BY DATENAME(dw, DateBorrowed)
+ORDER BY Percentage DESC
